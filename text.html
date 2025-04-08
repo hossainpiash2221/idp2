@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafeteria Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-4">Cafeteria Menu</h2>
+        
+        <label class="block font-semibold">Select Day:</label>
+        <select id="day" class="w-full p-2 border rounded mb-4">
+            <option value="sat">Saturday</option>
+            <option value="sun">Sunday</option>
+            <option value="mon">Monday</option>
+        </select>
+
+        <label class="block font-semibold">Breakfast:</label>
+        <div class="mb-4">
+            <input type="checkbox" id="porota" value="30" class="mr-2"> Porota (30 Tk)
+            <input type="checkbox" id="egg" value="20" class="ml-4"> Egg (20 Tk)
+        </div>
+        
+        <label class="block font-semibold">Lunch:</label>
+        <div class="mb-4">
+            <input type="checkbox" id="rice" value="30" class="mr-2"> Rice (30 Tk)
+            <input type="checkbox" id="chicken" value="50" class="ml-4"> Chicken (50 Tk)
+        </div>
+
+        <div class="text-lg font-semibold">Total Bill: <span id="total">0</span> Tk</div>
+        <button onclick="calculateTotal()" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Calculate</button>
+        
+        <div class="mt-4">
+            <p>Have to pay: <span id="pay">0</span> Tk</p>
+            <button class="bg-green-500 text-white px-4 py-2 rounded mt-2">Payment</button>
+        </div>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            let total = 0;
+            document.querySelectorAll('input[type=checkbox]:checked').forEach(item => {
+                total += parseInt(item.value);
+            });
+            document.getElementById('total').innerText = total;
+            document.getElementById('pay').innerText = total / 2;
+        }
+    </script>
+</body>
+</html>
