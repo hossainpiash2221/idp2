@@ -33,8 +33,8 @@
                 <ul class="flex space-x-4">
                     <li><a href="index.html" class="hover:text-gray-300">Main Manu</a></li>
                     <li><a href="cafeteria.html" class="hover:text-gray-300">Cafeteria</a></li>
-                    <li><a href="#transport" class="hover:text-gray-300">Transport</a></li>
-                    <li><a href="#clubs" class="hover:text-gray-300">Clubs</a></li>
+                    <li><a href="trackBus.html" class="hover:text-gray-300">Transport</a></li>
+                    <li><a href="clubs.html" class="hover:text-gray-300">Clubs</a></li>
                     <li><a href="#communication" class="hover:text-gray-300">Communication Hub</a></li>
                 </ul>
                 <div class="flex space-x-4">
@@ -46,16 +46,37 @@
         </div>
 
         <!-- Hero Section -->
-        <section class="h-screen flex items-center justify-center text-center">
-            <div class="bg-[#5800ff] bg-opacity-75 p-10 rounded-lg text-white">
-                <h2 class="text-4xl font-bold">Welcome to Campus360</h2>
-                <p class="mt-4 text-lg">A platform to enhance your campus experience with easy access to cafeteria,
-                    transport, and club activities.</p>
-                <a href="#cafeteria"
-                    class="mt-6 inline-block px-6 py-3 bg-[#1800ff] hover:bg-blue-700 rounded-lg text-white">Get
-                    Started</a>
-            </div>
-        </section>
+<section class="h-screen flex items-center justify-center text-center">
+  <div class="bg-[#5800ff] bg-opacity-75 p-10 rounded-lg text-white animate-fade-in-up">
+    <h2 class="text-4xl font-bold">Welcome to Campus360</h2>
+    <p class="mt-4 text-2xl text-white">
+      A platform to enhance your campus experience with easy access to cafeteria,
+      transport, and club activities.
+    </p>
+    <a href="#cafeteria"
+       class="mt-6 inline-block px-6 py-3 bg-[#1800ff] hover:bg-blue-700 rounded-lg text-white">
+       Get Started
+    </a>
+  </div>
+</section>
+
+<style>
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+</style>
+
 
         <div class="bg-[#5800ff] bg-opacity-75">
             <section class="container mx-auto p-5  ">

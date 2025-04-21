@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus360 - Transport</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      setInterval(() => {
+        document.getElementById("transport-status").textContent =
+          "Available bus seats: " + (Math.floor(Math.random() * 30) + 1);
+      }, 5000);
+    });
+  </script>
+</head>
+
+<body class="bg-[#001F3F] text-white">
+  <div class="bg-[url('bus_background.jpg')] bg-fixed bg-cover bg-center min-h-screen">
+    <!-- Navbar -->
+    <div class="bg-[#001F3F] bg-opacity-90 fixed w-full z-40 shadow-md">
+      <nav class="container mx-auto p-4 flex justify-evenly items-center">
+        <h1 class="text-2xl font-bold">Campus360 <br /><span class="ml-3 text-sm font-light">Transport Module</span></h1>
+        <ul class="flex space-x-4">
+          <li><a href="index.html" class="hover:text-gray-300">Home</a></li>
+          <li><a href="cafeteria.html" class="hover:text-gray-300">Cafeteria</a></li>
+          <li><a href="transport.html" class="hover:text-gray-300">Transport</a></li>
+          <li><a href="clubs.html" class="hover:text-gray-300">Clubs</a></li>
+          <li><a href="communication.html" class="hover:text-gray-300">Communication Hub</a></li>
+        </ul>
+        <div class="flex space-x-4">
+          <button><img class="w-6" src="search.png" alt="Search" /></button>
+          <button>Login</button>
+          <button class="btn btn-outline glass text-white">Register Now</button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Transport Overview -->
+    <section class="h-screen flex items-center justify-center text-center">
+      <div class="bg-[#001F3F] bg-opacity-75 p-10 rounded-lg animate-fade-in-up">
+        <h2 class="text-4xl font-bold">University Transport Management</h2>
+        <p class="mt-4 text-xl">Track bus availability, schedules, and student polls.</p>
+        <p id="transport-status" class="mt-4 text-blue-300 font-semibold">Loading seat availability...</p>
+        <a href="#features"
+          class="mt-6 inline-block px-6 py-3 bg-blue-500 hover:bg-blue-700 rounded-lg text-white">Explore Features</a>
+      </div>
+    </section>
+
+    <style>
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+      }
+    </style>
+
+    <!-- Feature Cards -->
+    <section id="features" class="container mx-auto p-10">
+      <h4 class="text-4xl font-bold text-center mb-10">Transport Features</h4>
+      <div class="flex flex-wrap gap-8 justify-center">
+        <div class="card glass w-80">
+          <figure><img src="bus_track.jpg" alt="Track Bus" class="h-48 w-full object-cover" /></figure>
+          <div class="card-body">
+            <h2 class="card-title">Track Bus</h2>
+            <p>Monitor real-time location of buses with live GPS updates.</p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary">Track Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="card glass w-80">
+          <figure><img src="schedule.jpg" alt="Bus Schedule" class="h-48 w-full object-cover" /></figure>
+          <div class="card-body">
+            <h2 class="card-title">Bus Schedule</h2>
+            <p>View current and upcoming transport schedules organized by routes and times.</p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary">View Schedule</button>
+            </div>
+          </div>
+        </div>
+        <div class="card glass w-80">
+          <figure><img src="poll.jpg" alt="Transport Poll" class="h-48 w-full object-cover" /></figure>
+          <div class="card-body">
+            <h2 class="card-title">Transport Poll</h2>
+            <p>Participate in polls to help optimize transport resources based on student demand.</p>
+            <div class="card-actions justify-end">
+              <button class="btn btn-primary">Vote Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#001F3F] text-white text-center p-10 mt-16">
+      <p>&copy; 2025 Campus360. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+
+</html>
