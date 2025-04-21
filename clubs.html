@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Campus360 - Club Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-[#5800ff] text-white">
+  <!-- Header -->
+  <div class="bg-[url('campus360.jpg')] bg-fixed bg-cover bg-center min-h-screen pt-24">
+    <div class="bg-[#5800ff] bg-opacity-75 w-full fixed top-0 z-50 shadow-md">
+      <nav class="container mx-auto p-4 text-white flex justify-evenly items-center ">
+        <h1 class="text-2xl font-bold hover:clickable">Campus360 <br> <span class="ml-3">Solution</span></h1>
+        <ul class="flex space-x-4">
+            <li><a href="index.html" class="hover:text-gray-300">Main Manu</a></li>
+            <li><a href="cafeteria.html" class="hover:text-gray-300">Cafeteria</a></li>
+            <li><a href="trackBus.html" class="hover:text-gray-300">Transport</a></li>
+            <li><a href="Clubs.html" class="hover:text-gray-300">Clubs</a></li>
+            <li><a href="#communication" class="hover:text-gray-300">Communication Hub</a></li>
+        </ul>
+        <div class="flex space-x-4">
+            <button> <img class="w-6" src="search.png" alt=""></button>
+            <button>Login</button>
+            <button class="btn btn-outline glass text-white">Register Now</button>
+        </div>
+    </nav>
+    </div>
+
+    <!-- Hero -->
+    <!-- <section class="text-center py-16 bg-opacity-80">
+      <div class="bg-[#5800ff] bg-opacity-75 p-10 rounded-lg w-[90%] mx-auto text-white">
+        <h2 class="text-4xl font-bold mb-2">🎯 Club Management</h2>
+        <p class="text-lg">Apply, join, lead, and participate in the most exciting campus events!</p>
+        <p id="countdown" class="mt-4 text-lg font-semibold text-yellow-300"></p>
+      </div>
+    </section> -->
+
+    <section class="h-screen flex items-center justify-center text-center animate-fade-in-up">
+      <div class="bg-[#5800ff] bg-opacity-75 p-10 rounded-lg w-[60%] mx-auto text-white">
+        <h2 class="text-4xl font-bold mb-2">🎯 Clubs Management</h2>
+        <p class="text-2xl font-semibold">Apply, join, lead, and participate in the most exciting campus events!</p>
+        <p id="countdown" class="mt-4 text-lg font-semibold text-yellow-300"></p>
+        <button class="btn btn-secondary mt-4 animate-pulse" onclick="document.getElementById('joinModal').showModal()">Join With Us</button>
+      </div>
+    </section>
+    
+    <!-- Modal -->
+<!-- Modal -->
+<dialog id="joinModal" class="modal ">
+  <div class="modal-box text-white bg-[#5800ff] bg-opacity-75">
+    <h3 class="font-bold text-lg mb-4">Apply for club Membership</h3>
+    <form id="joinForm" class="space-y-4">
+      <select class="select select-bordered w-full text-black" required>
+        <option disabled selected>Select a Club</option>
+        <option value="Computer Club">💻 Computer Club</option>
+        <option value="Gaming Club">🎮 Gaming Club</option>
+        <option value="Language Club">🗣️ Language Club</option>
+        <option value="Shangskriti Club">🎭 Shangskriti Club</option>
+        <option value="Photography Club">📸 Photography Club</option>
+        <option value="Business Club">📊 Business Club</option>
+      </select>
+      <input type="text" placeholder="Full Name" class="input input-bordered w-full" required>
+      <input type="text" placeholder="Student ID" class="input input-bordered w-full" required>
+      <input type="text" placeholder="Department" class="input input-bordered w-full" required>
+      <label class="block font-semibold">Upload Resume (PDF)</label>
+      <input type="file" accept=".pdf" class="file-input file-input-bordered w-full" required>
+      <label class="block font-semibold">Upload Student ID Photo</label>
+      <input type="file" accept="image/*" class="file-input file-input-bordered w-full" required>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn">Cancel</button>
+        </form>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</dialog>
+
+<script>
+  document.getElementById("joinForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("✅ Your application has been submitted successfully!");
+    document.getElementById("joinModal").close();
+    this.reset();
+  });
+</script>
+
+    
+    <style>
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    
+      .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+      }
+    </style>
+
+
+
+    <!-- Upcoming Events -->
+    <section class="container mx-auto p-5">
+      <div class="card bg-white text-black shadow-lg p-6 glass">
+        <h2 class="text-2xl font-semibold mb-4">📅 Upcoming Events</h2>
+        <ul id="eventList" class="list-disc ml-6 space-y-1">
+          <li>Workshop on AI - <strong>April 28, 2025</strong></li>
+          <li>Hackathon - <strong>May 5, 2025</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Admin Panel -->
+    <section class="container mx-auto p-5">
+      <div class="card bg-white text-black shadow-lg p-6">
+        <h2 class="text-2xl font-semibold mb-4">🔐 Admin Login</h2>
+        <form id="adminLoginForm" class="space-y-3">
+          <input type="text" placeholder="Username" id="adminUser" class="input input-bordered w-full" required />
+          <input type="password" placeholder="Password" id="adminPass" class="input input-bordered w-full" required />
+          <button class="btn btn-accent w-full">Login</button>
+        </form>
+
+        <div id="eventAdminControls" class="mt-4 hidden">
+          <h3 class="text-lg font-medium mb-2">Manage Events</h3>
+          <input id="newEvent" type="text" placeholder="New Event Details" class="input input-bordered w-full mb-2" />
+          <div class="space-x-2">
+            <button onclick="addEvent()" class="btn btn-success btn-sm">Add Event</button>
+            <button onclick="deleteLastEvent()" class="btn btn-error btn-sm">Delete Last Event</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="container mx-auto p-5">
+      <div class="card bg-white text-black shadow-lg p-6 collapse collapse-arrow">
+        <input type="checkbox" class="peer hidden" />
+        <div class="collapse-title text-xl font-medium">📚 Previous Events & Resources</div>
+        <div class="collapse-content space-y-2">
+          <ul class="list-disc ml-6">
+            <li><strong>Web Dev Bootcamp</strong> – <a class="link link-primary">Slide Deck</a> | <a class="link link-primary">Project Code</a></li>
+            <li><strong>IoT Hackfest</strong> – <a class="link link-primary">Final Presentation</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leaderboard -->
+    <section class="container mx-auto p-5">
+      <div class="card bg-white text-black shadow-lg p-6">
+        <div class="flex justify-between items-center">
+          <h2 class="text-2xl font-semibold mb-4">💻 Weekly Leaderboard</h2>
+          <button onclick="refreshLeaderboard()" class="btn btn-outline btn-sm">🔄 Refresh</button>
+        </div>
+        <ol id="leaderboard" class="list-decimal ml-6 space-y-1">
+          <li class="bg-success text-white rounded p-1">John Doe - Winner 🏆</li>
+          <li>Jane Smith - Runner-up</li>
+          <li>Afzal Hossain - Third Place</li>
+        </ol>
+      </div>
+    </section>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Admin Panel
+    const adminCreds = { username: "admin", password: "admin123" };
+    document.getElementById("adminLoginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const user = document.getElementById("adminUser").value;
+      const pass = document.getElementById("adminPass").value;
+      if (user === adminCreds.username && pass === adminCreds.password) {
+        alert("✅ Admin Logged In");
+        document.getElementById("eventAdminControls").classList.remove("hidden");
+      } else {
+        alert("❌ Invalid Credentials");
+      }
+    });
+
+    function addEvent() {
+      const eventText = document.getElementById("newEvent").value;
+      if (eventText.trim() !== "") {
+        const li = document.createElement("li");
+        li.textContent = eventText;
+        document.getElementById("eventList").appendChild(li);
+        document.getElementById("newEvent").value = "";
+      }
+    }
+
+    function deleteLastEvent() {
+      const list = document.getElementById("eventList");
+      if (list.lastElementChild) list.removeChild(list.lastElementChild);
+    }
+
+    // Form Success
+    document.getElementById("membershipForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("✅ Membership Application Submitted!");
+      this.reset();
+    });
+
+    // Countdown Timer
+    const countdownElement = document.getElementById("countdown");
+    const nextEventDate = new Date("April 28, 2025 09:00:00");
+    function updateCountdown() {
+      const now = new Date();
+      const diff = nextEventDate - now;
+      if (diff <= 0) {
+        countdownElement.textContent = "🎉 The event has started!";
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      countdownElement.textContent = `⏳ Time until next event: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+    setInterval(updateCountdown, 1000);
+
+    // Leaderboard Shuffle
+    function refreshLeaderboard() {
+      const names = [
+        "Zakkia Haque - Winner 🏆",
+        "Jane Smith - Runner-up",
+        "Afzal Hossain - Third Place",
+        "Sara Khan - 4th",
+        "Amjad Hossain Piash - 5th"
+      ];
+      const list = document.getElementById("leaderboard");
+      list.innerHTML = "";
+      names.sort(() => Math.random() - 0.5).forEach(name => {
+        const li = document.createElement("li");
+        li.className = name.includes("Winner") ? "bg-success text-white rounded p-1" : "";
+        li.textContent = name;
+        list.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
